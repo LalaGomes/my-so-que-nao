@@ -11,5 +11,6 @@ const router = express.Router();
 // Essa deve direcionar a requisição para UsuariosController.create (ainda inexiste)
 router.get('/create', UsuariosController.create);
 
+router.post('/create', UsuariosController.store);
 // Expostar o roteador e UTILIZÁ-LO no app.js
 module.exports = router;
