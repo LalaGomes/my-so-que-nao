@@ -3,6 +3,7 @@ const express = require('express');
 
 // Importando o Controller
 const UsuariosController = require('../controllers/UsuariosController');
+const verificaSeLogado = require('../middlewares/verificaSeLogado');
 
 // Criar o roteador
 const router = express.Router();
@@ -12,5 +13,8 @@ const router = express.Router();
 router.get('/create', UsuariosController.create);
 
 router.post('/create', UsuariosController.store);
+
+router.get('/home', verificaSeLogado, UsuariosController.mostrarHome)
+
 // Expostar o roteador e UTILIZÁ-LO no app.js
 module.exports = router;
